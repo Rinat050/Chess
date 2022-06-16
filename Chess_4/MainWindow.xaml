@@ -5,8 +5,31 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Chess_4"
         mc:Ignorable="d"
-        Title="ChessBoard" Height="660" Width="860" ResizeMode="NoResize">
-    <Grid ShowGridLines="True">
+        Title="Chess" Height="660" Width="860" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="btnStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="18"></Setter>
+            <Setter Property="Margin" Value="0"></Setter>
+            <Setter Property="BorderThickness" Value="0"></Setter>
+        </Style>
+
+        <Style x:Key="btnWhite" BasedOn="{StaticResource btnStyle}" TargetType="Button">
+            <Setter Property="Background" Value="White"></Setter>
+            <Setter Property="Foreground" Value="Black"></Setter>
+        </Style>
+
+        <Style x:Key="btnBlack" BasedOn="{StaticResource btnStyle}" TargetType="Button">
+            <Setter Property="Background" Value="Black"></Setter>
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="FontSize" Value="18"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
@@ -32,6 +55,96 @@
             <ColumnDefinition Width="30"/>
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
+        <Button Grid.Column="1" Grid.Row="1" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="2" Grid.Row="1" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="3" Grid.Row="1" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="4" Grid.Row="1" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="5" Grid.Row="1" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="6" Grid.Row="1" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="7" Grid.Row="1" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="8" Grid.Row="1" Style="{StaticResource btnBlack}"/>
 
+        <Button Grid.Column="1" Grid.Row="2" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="2" Grid.Row="2" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="3" Grid.Row="2" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="4" Grid.Row="2" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="5" Grid.Row="2" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="6" Grid.Row="2" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="7" Grid.Row="2" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="8" Grid.Row="2" Style="{StaticResource btnWhite}"/>
+
+        <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="2" Grid.Row="3" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="3" Grid.Row="3" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="4" Grid.Row="3" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="5" Grid.Row="3" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="6" Grid.Row="3" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="7" Grid.Row="3" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="8" Grid.Row="3" Style="{StaticResource btnBlack}"/>
+
+        <Button Grid.Column="1" Grid.Row="4" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="2" Grid.Row="4" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="3" Grid.Row="4" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="4" Grid.Row="4" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="5" Grid.Row="4" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="6" Grid.Row="4" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="7" Grid.Row="4" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="8" Grid.Row="4" Style="{StaticResource btnWhite}"/>
+
+        <Button Grid.Column="1" Grid.Row="5" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="2" Grid.Row="5" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="3" Grid.Row="5" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="4" Grid.Row="5" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="5" Grid.Row="5" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="6" Grid.Row="5" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="7" Grid.Row="5" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="8" Grid.Row="5" Style="{StaticResource btnBlack}"/>
+
+        <Button Grid.Column="1" Grid.Row="6" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="2" Grid.Row="6" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="3" Grid.Row="6" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="4" Grid.Row="6" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="5" Grid.Row="6" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="6" Grid.Row="6" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="7" Grid.Row="6" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="8" Grid.Row="6" Style="{StaticResource btnWhite}"/>
+
+        <Button Grid.Column="1" Grid.Row="7" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="2" Grid.Row="7" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="3" Grid.Row="7" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="4" Grid.Row="7" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="5" Grid.Row="7" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="6" Grid.Row="7" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="7" Grid.Row="7" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="8" Grid.Row="7" Style="{StaticResource btnBlack}"/>
+
+        <Button Grid.Column="1" Grid.Row="8" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="2" Grid.Row="8" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="3" Grid.Row="8" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="4" Grid.Row="8" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="5" Grid.Row="8" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="6" Grid.Row="8" Style="{StaticResource btnWhite}"/>
+        <Button Grid.Column="7" Grid.Row="8" Style="{StaticResource btnBlack}"/>
+        <Button Grid.Column="8" Grid.Row="8" Style="{StaticResource btnWhite}"/>
+
+        <Label Content="8" Grid.Column="0" Grid.Row="1"/>
+        <Label Content="7" Grid.Column="0" Grid.Row="2"/>
+        <Label Content="6" Grid.Column="0" Grid.Row="3"/>
+        <Label Content="5" Grid.Column="0" Grid.Row="4"/>
+        <Label Content="4" Grid.Column="0" Grid.Row="5"/>
+        <Label Content="3" Grid.Column="0" Grid.Row="6"/>
+        <Label Content="2" Grid.Column="0" Grid.Row="7"/>
+        <Label Content="1" Grid.Column="0" Grid.Row="8"/>
+
+        <Label Content="A" Grid.Column="1" Grid.Row="9"/>
+        <Label Content="B" Grid.Column="2" Grid.Row="9"/>
+        <Label Content="C" Grid.Column="3" Grid.Row="9"/>
+        <Label Content="D" Grid.Column="4" Grid.Row="9"/>
+        <Label Content="E" Grid.Column="5" Grid.Row="9"/>
+        <Label Content="F" Grid.Column="6" Grid.Row="9"/>
+        <Label Content="G" Grid.Column="7" Grid.Row="9"/>
+        <Label Content="H" Grid.Column="8" Grid.Row="9"/>
+
+        <Border Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="8" BorderBrush="Black" BorderThickness="2"/>
     </Grid>
 </Window>
