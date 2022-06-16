@@ -29,7 +29,7 @@
             <Setter Property="FontSize" Value="18"></Setter>
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid Background="#FFCC650A">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
@@ -146,5 +146,9 @@
         <Label Content="H" Grid.Column="8" Grid.Row="9"/>
 
         <Border Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="8" BorderBrush="Black" BorderThickness="2"/>
+        <ComboBox Grid.Column="10" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="120" FontSize="18" HorizontalContentAlignment="Center"></ComboBox>
+        <TextBox Grid.Column="10" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" FontSize="18"/>
+        <Button Grid.Column="10" Content="Создать" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="18" Width="120" Height="33"/>
+        <Button Grid.Column="10" Content="Удалить" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" FontSize="18" Width="120" Height="33"/>
     </Grid>
 </Window>
