@@ -12,6 +12,7 @@
             <Setter Property="Margin" Value="0"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="Content" Value=""></Setter>
+            <EventSetter Event="Click" Handler="Button_Click"></EventSetter>
         </Style>
 
         <Style x:Key="btnWhite" BasedOn="{StaticResource btnStyle}" TargetType="Button">

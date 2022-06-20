@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using ChessCore;
 
 namespace Chess_4
@@ -32,11 +33,11 @@ namespace Chess_4
                     var pieceName = cbPiece.SelectedItem.ToString();
                     var cellCoordinates = tbCoordinates.Text;
                     var pieceData = new PieceData(pieceName, cellCoordinates);
-                    currentPiece = PieceFab.Make(pieceData);
+                    var piece = PieceFab.Make(pieceData);
 
-                    var pieceBtn = GetButton(currentPiece.x, Math.Abs(currentPiece.y - 9));
-                    pieceBtn.Content = currentPiece.Name;
-                    pieces.Add(currentPiece);
+                    var pieceBtn = GetButton(piece.x, piece.y);
+                    pieceBtn.Content = piece.Name;
+                    pieces.Add(piece);
                 }
                 catch
                 {
@@ -47,9 +48,11 @@ namespace Chess_4
 
         private Button GetButton(int col, int row)
         {
+            var r = Math.Abs(row - 9);
+
             foreach(Button btn in Grid.Children)
             {
-                if (Grid.GetRow(btn) == row && Grid.GetColumn(btn) == col)
+                if (Grid.GetRow(btn) == r && Grid.GetColumn(btn) == col)
                 {
                     return btn;
                 }
@@ -67,11 +70,52 @@ namespace Chess_4
                 var piece = pieces[i];
                 if (piece.GetCoordinates() == cellCoordinates)
                 {
-                    var pieceBtn = GetButton(piece.x, Math.Abs(piece.y - 9));
+                    var pieceBtn = GetButton(piece.x, piece.y);
                     pieceBtn.Content = "";
                     pieces.Remove(piece);
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = (Button)sender;
+            var row = Math.Abs(Grid.GetRow(btn) - 9);
+            var col = Grid.GetColumn(btn);
+
+            if (btn.Content == "" && currentPiece != null)
+            {
+                var oldBtn = GetButton(currentPiece.x, currentPiece.y);
+
+                if (currentPiece.Move(col, row))
+                {
+                    btn.Content = currentPiece.Name;
+                    
+                    oldBtn.Content = "";
+                    oldBtn.BorderThickness = new Thickness(0);
+                    currentPiece = null;
+                }
+                return;
+            }
+            
+            if (btn.Content != "")
+            {
+                currentPiece = GetPiece(col,row);
+                btn.BorderThickness = new Thickness(4);
+                btn.BorderBrush = Brushes.Aqua;
+            }
+        }
+
+        private Piece GetPiece(int col, int row)
+        {
+            foreach (var piece in pieces)
+            {
+                if (piece.x == col && piece.y == row)
+                {
+                    return piece;
+                }
+            }
+            return null;
         }
     }
 }
