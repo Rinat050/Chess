@@ -80,5 +80,10 @@ namespace ChessCore
                 return false;
             }
         }
+
+        public string GetCoordinates()
+        {
+            return Convert.ToString(convertationToStr[this.x]) + this.y;
+        }
     }
 }

@@ -149,6 +149,6 @@
         <ComboBox Name="cbPiece" Grid.Column="10" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="120" FontSize="18" HorizontalContentAlignment="Center"></ComboBox>
         <TextBox Name="tbCoordinates" Grid.Column="10" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" FontSize="18"/>
         <Button Name="btnCreate" Grid.Column="10" Content="Create" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="18" Width="120" Height="33" Click="btnCreate_Click"/>
-        <Button Name="btnDelete" Grid.Column="10" Content="Delete" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" FontSize="18" Width="120" Height="33"/>
+        <Button Name="btnDelete" Grid.Column="10" Content="Delete" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" FontSize="18" Width="120" Height="33" Click="btnDelete_Click"/>
     </Grid>
 </Window>

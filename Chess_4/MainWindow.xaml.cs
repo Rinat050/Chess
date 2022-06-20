@@ -34,8 +34,9 @@ namespace Chess_4
                     var pieceData = new PieceData(pieceName, cellCoordinates);
                     currentPiece = PieceFab.Make(pieceData);
 
-                    var PieceBtn = GetButton(currentPiece.x, Math.Abs(currentPiece.y - 9));
-                    PieceBtn.Content = currentPiece.Name;
+                    var pieceBtn = GetButton(currentPiece.x, Math.Abs(currentPiece.y - 9));
+                    pieceBtn.Content = currentPiece.Name;
+                    pieces.Add(currentPiece);
                 }
                 catch
                 {
@@ -55,6 +56,22 @@ namespace Chess_4
             }
 
             return null;
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            var cellCoordinates = tbCoordinates.Text;
+
+            for (int i = 0; i < pieces.Count; ++i)
+            {
+                var piece = pieces[i];
+                if (piece.GetCoordinates() == cellCoordinates)
+                {
+                    var pieceBtn = GetButton(piece.x, Math.Abs(piece.y - 9));
+                    pieceBtn.Content = "";
+                    pieces.Remove(piece);
+                }
+            }
         }
     }
 }
