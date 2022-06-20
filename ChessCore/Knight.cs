@@ -2,7 +2,7 @@
 
 namespace ChessCore
 {
-    class Knight : Piece
+    public class Knight : Piece
     {
         public Knight(string name, string sell) : base(name, sell) { }
         public Knight(string name, int x, int y) : base(name, x, y) { }

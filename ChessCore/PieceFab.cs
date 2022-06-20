@@ -9,22 +9,22 @@
             switch (pieceData.Name)
             {
                 case "Bishop":
-                    piece = new Bishop(pieceData.Name, pieceData.Cell);
+                    piece = new Bishop(pieceData.Name, pieceData.Coordinates);
                     break;
                 case "King":
-                    piece = new King(pieceData.Name, pieceData.Cell);
+                    piece = new King(pieceData.Name, pieceData.Coordinates);
                     break;
                 case "Knight":
-                    piece = new Knight(pieceData.Name, pieceData.Cell);
+                    piece = new Knight(pieceData.Name, pieceData.Coordinates);
                     break;
                 case "Queen":
-                    piece = new Queen(pieceData.Name, pieceData.Cell);
+                    piece = new Queen(pieceData.Name, pieceData.Coordinates);
                     break;
                 case "Rook":
-                    piece = new Rook(pieceData.Name, pieceData.Cell);
+                    piece = new Rook(pieceData.Name, pieceData.Coordinates);
                     break;
                 case "Pawn":
-                    piece = new Pawn(pieceData.Name, pieceData.Cell);
+                    piece = new Pawn(pieceData.Name, pieceData.Coordinates);
                     break;
             }
 

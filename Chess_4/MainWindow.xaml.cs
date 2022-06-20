@@ -1,17 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using ChessCore;
 
 namespace Chess_4
 {
@@ -20,9 +11,50 @@ namespace Chess_4
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<string> piecesNames = new List<string>() 
+                                {"Bishop", "King", "Knight", "Pawn", "Queen", "Rook"};
+        private List<Piece> pieces;
+        private Piece currentPiece;
+
         public MainWindow()
         {
             InitializeComponent();
+            cbPiece.ItemsSource = piecesNames;
+            pieces = new List<Piece>();
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            if (cbPiece.SelectedItem != null)
+            {
+                try
+                {
+                    var pieceName = cbPiece.SelectedItem.ToString();
+                    var cellCoordinates = tbCoordinates.Text;
+                    var pieceData = new PieceData(pieceName, cellCoordinates);
+                    currentPiece = PieceFab.Make(pieceData);
+
+                    var PieceBtn = GetButton(currentPiece.x, Math.Abs(currentPiece.y - 9));
+                    PieceBtn.Content = currentPiece.Name;
+                }
+                catch
+                {
+                    MessageBox.Show("The piece could not be added.", "Warning");
+                }
+            }
+        }
+
+        private Button GetButton(int col, int row)
+        {
+            foreach(Button btn in Grid.Children)
+            {
+                if (Grid.GetRow(btn) == row && Grid.GetColumn(btn) == col)
+                {
+                    return btn;
+                }
+            }
+
+            return null;
         }
     }
 }

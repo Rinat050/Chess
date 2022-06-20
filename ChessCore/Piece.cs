@@ -6,8 +6,8 @@ namespace ChessCore
     public abstract class Piece
     {
         public string Name { get; }
-        protected int x;
-        protected int y;
+        public int x { get; protected set; }
+        public int y { get; protected set; }
         protected Dictionary<char, int> convertationToInt = 
             new Dictionary<char, int>()
             {
@@ -43,8 +43,16 @@ namespace ChessCore
         protected Piece(string name, string cell)
         {
             Name = name;
-            x = convertationToInt[cell[0]];
-            y = Convert.ToInt32(cell[1].ToString());
+
+            if (cell.Length <= 2)
+            {
+                x = convertationToInt[cell[0]];
+                y = Convert.ToInt32(cell[1].ToString());
+            }
+            else
+            {
+                throw new Exception("Invalid coordinates");
+            }   
         }
 
         protected virtual bool isRightMove(int x, int y)
@@ -52,23 +60,24 @@ namespace ChessCore
             return false;
         }
 
-        public void Move(string sellToMove)
+        public bool Move(string sellToMove)
         {
             int x = convertationToInt[sellToMove[0]];
             int y = Convert.ToInt32(sellToMove[1].ToString());
-            Move(x, y);
+            return Move(x, y);
         }
 
-        public void Move(int x, int y)
+        public bool Move(int x, int y)
         {
             if (isRightMove(x, y))
             {
                 this.x = x;
                 this.y = y;
+                return true;
             }
             else
             {
-                throw new Exception("Невозможно сделать такой ход!");
+                return false;
             }
         }
     }

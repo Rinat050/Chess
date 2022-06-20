@@ -11,6 +11,7 @@
             <Setter Property="FontSize" Value="18"></Setter>
             <Setter Property="Margin" Value="0"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
+            <Setter Property="Content" Value=""></Setter>
         </Style>
 
         <Style x:Key="btnWhite" BasedOn="{StaticResource btnStyle}" TargetType="Button">
@@ -29,7 +30,7 @@
             <Setter Property="FontSize" Value="18"></Setter>
         </Style>
     </Window.Resources>
-    <Grid Background="#FFCC650A">
+    <Grid Name="Grid" Background="#FFCC650A">
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
@@ -145,10 +146,9 @@
         <Label Content="G" Grid.Column="7" Grid.Row="9"/>
         <Label Content="H" Grid.Column="8" Grid.Row="9"/>
 
-        <Border Grid.Row="1" Grid.RowSpan="8" Grid.Column="1" Grid.ColumnSpan="8" BorderBrush="Black" BorderThickness="2"/>
-        <ComboBox Grid.Column="10" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="120" FontSize="18" HorizontalContentAlignment="Center"></ComboBox>
-        <TextBox Grid.Column="10" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" FontSize="18"/>
-        <Button Grid.Column="10" Content="Создать" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="18" Width="120" Height="33"/>
-        <Button Grid.Column="10" Content="Удалить" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" FontSize="18" Width="120" Height="33"/>
+        <ComboBox Name="cbPiece" Grid.Column="10" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="120" FontSize="18" HorizontalContentAlignment="Center"></ComboBox>
+        <TextBox Name="tbCoordinates" Grid.Column="10" HorizontalAlignment="Center" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Width="120" FontSize="18"/>
+        <Button Name="btnCreate" Grid.Column="10" Content="Create" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" FontSize="18" Width="120" Height="33" Click="btnCreate_Click"/>
+        <Button Name="btnDelete" Grid.Column="10" Content="Delete" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" FontSize="18" Width="120" Height="33"/>
     </Grid>
 </Window>

@@ -3,7 +3,13 @@
     public class PieceData
     {
         public string Name;
-        public string Cell;
+        public string Coordinates;
+
+        public PieceData (string Name, string Coordinates)
+        {
+            this.Name = Name;
+            this.Coordinates = Coordinates;
+        }
 
         public override string ToString()
         {

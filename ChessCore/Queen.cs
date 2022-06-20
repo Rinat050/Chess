@@ -2,7 +2,7 @@
 
 namespace ChessCore
 {
-    internal class Queen : Piece
+    public class Queen : Piece
     {
         public Queen(string name, string sell) : base(name, sell) { }
         public Queen(string name, int x, int y) : base(name, x, y) { }

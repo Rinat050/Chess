@@ -1,6 +1,6 @@
 ﻿namespace ChessCore
 {
-    class Pawn : Piece
+    public class Pawn : Piece
     {
         public Pawn(string name, string sell) : base(name, sell) { }
         public Pawn(string name, int x, int y) : base(name, x, y) { }

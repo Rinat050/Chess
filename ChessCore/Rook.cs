@@ -1,6 +1,6 @@
 ﻿namespace ChessCore
 {
-    class Rook : Piece
+    public class Rook : Piece
     {
         public Rook(string name, string sell) : base(name, sell) { }
         public Rook(string name, int x, int y) : base(name, x, y) { }
