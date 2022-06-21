@@ -34,11 +34,10 @@ namespace Chess_4
                 {
                     var pieceName = cbPiece.SelectedItem.ToString();
                     var cellCoordinates = tbCoordinates.Text;
-                    var pieceData = new PieceData(pieceName, cellCoordinates);
-                    var piece = PieceFab.Make(pieceData);
+                    var piece = PieceFab.Make(pieceName, cellCoordinates);
 
                     var pieceBtn = GetButton(piece.x, piece.y);
-                    if (pieceBtn.Content.ToString() != "")
+                    if (piecesNames.Contains(pieceBtn.Content.ToString()))
                     {
                         throw new Exception();
                     }
