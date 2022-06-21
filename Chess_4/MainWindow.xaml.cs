@@ -1,9 +1,9 @@
-﻿using System;
+﻿//Safiullin Rinat, 220P, Chess_4, 21.06.22
+using System;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using ChessCore;
 
 namespace Chess_4
@@ -14,7 +14,8 @@ namespace Chess_4
     public partial class MainWindow : Window
     {
         private List<string> piecesNames = new List<string>() 
-                                {"Bishop", "King", "Knight", "Pawn", "Queen", "Rook"};
+                                {"Bishop", "King", "Knight", 
+                                 "Pawn", "Queen", "Rook"};
         private List<Piece> pieces;
         private Piece currentPiece;
 
@@ -37,6 +38,11 @@ namespace Chess_4
                     var piece = PieceFab.Make(pieceData);
 
                     var pieceBtn = GetButton(piece.x, piece.y);
+                    if (pieceBtn.Content.ToString() != "")
+                    {
+                        throw new Exception();
+                    }
+
                     pieceBtn.Content = piece.Name;
                     pieces.Add(piece);
                 }
@@ -49,7 +55,7 @@ namespace Chess_4
 
         private Button GetButton(int col, int row)
         {
-            var r = Math.Abs(row - 9);
+            var r = ConvertToGridCoordinate(row);
 
             foreach(Button btn in Grid.Children)
             {
@@ -71,6 +77,10 @@ namespace Chess_4
                 var piece = pieces[i];
                 if (piece.GetCoordinates() == cellCoordinates)
                 {
+                    if (currentPiece == piece)
+                    {
+                        currentPiece = null;
+                    }
                     var pieceBtn = GetButton(piece.x, piece.y);
                     pieceBtn.Content = "";
                     pieces.Remove(piece);
@@ -97,7 +107,7 @@ namespace Chess_4
                 return;
             }
             
-            if (btn.Content != "")
+            if (btn.Content.ToString() != "")
             {
                 currentPiece = GetPiece(col,row);
             }
@@ -121,7 +131,7 @@ namespace Chess_4
             int row = ConvertToGridCoordinate(Grid.GetRow(currentBtn));
             int col = Grid.GetColumn(currentBtn);
 
-            if (currentPiece != null && currentBtn.Content == "")
+            if (currentPiece != null && currentBtn.Content.ToString() == "")
             {
                 currentBtn.Content = currentPiece.TryMove(col, row) ? "YES" : "NO";
             }

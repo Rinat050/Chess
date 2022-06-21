@@ -1,4 +1,5 @@
-﻿namespace ChessCore
+﻿//Safiullin Rinat, 220P, Chess_4, 21.06.22
+namespace ChessCore
 {
     public class PieceData
     {

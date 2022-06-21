@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Safiullin Rinat, 220P, Chess_4, 21.06.22
+using System;
 
 namespace ChessCore
 {
