@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using ChessCore;
 
@@ -83,16 +84,14 @@ namespace Chess_4
             var row = Math.Abs(Grid.GetRow(btn) - 9);
             var col = Grid.GetColumn(btn);
 
-            if (btn.Content == "" && currentPiece != null)
+            if (!piecesNames.Contains(btn.Content.ToString()) && currentPiece != null)
             {
                 var oldBtn = GetButton(currentPiece.x, currentPiece.y);
 
                 if (currentPiece.Move(col, row))
                 {
-                    btn.Content = currentPiece.Name;
-                    
+                    btn.Content = currentPiece.Name;             
                     oldBtn.Content = "";
-                    oldBtn.BorderThickness = new Thickness(0);
                     currentPiece = null;
                 }
                 return;
@@ -101,8 +100,6 @@ namespace Chess_4
             if (btn.Content != "")
             {
                 currentPiece = GetPiece(col,row);
-                btn.BorderThickness = new Thickness(4);
-                btn.BorderBrush = Brushes.Aqua;
             }
         }
 
@@ -116,6 +113,34 @@ namespace Chess_4
                 }
             }
             return null;
+        }
+
+        private void Button_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Button currentBtn = (Button)sender;
+            int row = ConvertToGridCoordinate(Grid.GetRow(currentBtn));
+            int col = Grid.GetColumn(currentBtn);
+
+            if (currentPiece != null && currentBtn.Content == "")
+            {
+                currentBtn.Content = currentPiece.TryMove(col, row) ? "YES" : "NO";
+            }
+        }
+
+        private void Button_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Button currentBtn = (Button)sender;
+            string btnContent = currentBtn.Content.ToString();
+
+            if (btnContent == "YES" || btnContent == "NO")
+            {
+                currentBtn.Content = "";
+            }
+        }
+
+        private int ConvertToGridCoordinate(int y)
+        {
+            return Math.Abs(y - 9);
         }
     }
 }

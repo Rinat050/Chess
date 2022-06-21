@@ -81,6 +81,11 @@ namespace ChessCore
             }
         }
 
+        public bool TryMove(int x, int y)
+        {
+            return isRightMove(x, y);
+        }
+
         public string GetCoordinates()
         {
             return Convert.ToString(convertationToStr[this.x]) + this.y;

@@ -13,6 +13,8 @@
             <Setter Property="BorderThickness" Value="0"></Setter>
             <Setter Property="Content" Value=""></Setter>
             <EventSetter Event="Click" Handler="Button_Click"></EventSetter>
+            <EventSetter Event="MouseEnter" Handler="Button_MouseEnter"></EventSetter>
+            <EventSetter Event="MouseLeave" Handler="Button_MouseLeave"></EventSetter>
         </Style>
 
         <Style x:Key="btnWhite" BasedOn="{StaticResource btnStyle}" TargetType="Button">
